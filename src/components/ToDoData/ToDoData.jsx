@@ -14,19 +14,21 @@ const ToDoData = () => {
 
     return (
         <div className="bg-secondary p-2 rounded">
-        <div className="text-white d-flex justify-content-between">
-            <p>ToDo</p>
-            <p className="bg-white text-black d-flex align-items-center justify-content-center" style={{ width: "20px", height: "20px" }}>0</p>
+            <div className="text-white d-flex justify-content-between">
+                <p>ToDo</p>
+                <p className="bg-white text-black d-flex align-items-center justify-content-center" style={{ width: "20px", height: "20px" }}>0</p>
+            </div>
+            <div className="overflow-y-auto overflow-custom overflow-x-hidden">
+                {
+                    incompleteData.map(userData =>
+                        <UserDataCard
+                            key={userData._id}
+                            {...userData}
+                        />
+                    )
+                }
+            </div>
         </div>
-        {
-            incompleteData.map(userData =>
-                <UserDataCard
-                    key={userData._id}
-                    {...userData}
-                />
-            )
-        }
-    </div>
     );
 };
 
