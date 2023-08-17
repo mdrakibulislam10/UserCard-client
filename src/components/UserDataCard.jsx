@@ -9,7 +9,7 @@ const UserDataCard = ({ user, client, description, followers, sms, fake_date, ro
     const [showModal, setShowModal] = useState(false);
 
     const { data: dataCount = "" } = useQuery(["count", role], async () => {
-        const res = await axios.get(`http://localhost:3000/dataCount?role=${role}`);
+        const res = await axios.get(`https://user-card-server.vercel.app/dataCount?role=${role}`);
         return res.data;
     });
 

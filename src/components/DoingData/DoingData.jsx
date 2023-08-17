@@ -6,7 +6,7 @@ const ToDoData = () => {
     const { data: doingData = [] } = useQuery({
         queryKey: ['doing'],
         queryFn: async () => {
-            const res = await axios.get("http://localhost:3000/doing");
+            const res = await axios.get("https://user-card-server.vercel.app/doing");
             return res.data
         }
     })

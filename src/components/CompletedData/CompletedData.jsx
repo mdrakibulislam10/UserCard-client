@@ -6,7 +6,7 @@ const ToDoData = () => {
     const { data: completeData = [] } = useQuery({
         queryKey: ['incomplete'],
         queryFn: async () => {
-            const res = await axios.get("http://localhost:3000/complete");
+            const res = await axios.get("https://user-card-server.vercel.app/complete");
             return res.data
         }
     })

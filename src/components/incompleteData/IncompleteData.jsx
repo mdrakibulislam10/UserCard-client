@@ -8,7 +8,7 @@ const IncompleteData = () => {
     const { data: incompleteData = [] } = useQuery({
         queryKey: ['incomplete'],
         queryFn: async () => {
-            const res = await axios.get("http://localhost:3000/incomplete");
+            const res = await axios.get("https://user-card-server.vercel.app/incomplete");
             return res.data
         }
     })
