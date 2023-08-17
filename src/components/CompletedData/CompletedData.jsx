@@ -3,7 +3,7 @@ import UserDataCard from "../UserDataCard";
 import axios from "axios";
 
 const ToDoData = () => {
-    const { data: incompleteData = [] } = useQuery({
+    const { data: completeData = [] } = useQuery({
         queryKey: ['incomplete'],
         queryFn: async () => {
             const res = await axios.get("http://localhost:3000/complete");
@@ -20,7 +20,7 @@ const ToDoData = () => {
             </div>
             <div className="overflow-y-auto overflow-custom overflow-x-hidden">
                 {
-                    incompleteData.map(userData =>
+                    completeData.map(userData =>
                         <UserDataCard
                             key={userData._id}
                             {...userData}
