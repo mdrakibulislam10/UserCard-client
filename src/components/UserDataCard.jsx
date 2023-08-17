@@ -1,25 +1,14 @@
 import { FaCalendarAlt, FaClipboardList, FaLayerGroup, FaPaperclip, FaSms } from 'react-icons/fa';
 import "./UserDataCard.css";
-import { Modal, Button } from 'react-bootstrap';
-import { useState } from 'react';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 const UserDataCard = ({ user, client, description, followers, sms, fake_date, role }) => {
-    const [showModal, setShowModal] = useState(false);
 
     const { data: dataCount = "" } = useQuery(["count", role], async () => {
         const res = await axios.get(`https://user-card-server.vercel.app/dataCount?role=${role}`);
         return res.data;
     });
-
-    const openModal = () => {
-        setShowModal(true);
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
-    };
 
     return (
         <div className='mb-1 bg-white p-2 rounded custom-card-width'>
@@ -46,35 +35,10 @@ const UserDataCard = ({ user, client, description, followers, sms, fake_date, ro
                 <span className='bg-secondary rounded-circle p-1 text-white me-2'>12+</span>
                 <span className='me-2'><FaSms /> {parseInt(sms) + 3}</span>
 
-                <div className='me-2 d-inline'>
-
-                    <div className="modal" tabIndex="-1">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title">Modal title</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <p>Modal body text goes here.</p>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='user-data-card d-inline'>
-                        {/* ... rest of the component code ... */}
-                        <span onClick={openModal}>
-                            <FaPaperclip />
-                        </span>
-
-                    </div>
+                <span className='me-2'>
+                    <FaPaperclip />
                     {dataCount}
-                </div>
+                </span>
 
                 <span><FaCalendarAlt /> {fake_date}</span>
             </div>
