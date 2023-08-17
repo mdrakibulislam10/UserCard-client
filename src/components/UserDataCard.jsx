@@ -68,25 +68,10 @@ const UserDataCard = ({ user, client, description, followers, sms, fake_date, ro
 
                     <div className='user-data-card d-inline'>
                         {/* ... rest of the component code ... */}
-                        <span style={{ cursor: "pointer" }} onClick={openModal}>
+                        <span onClick={openModal}>
                             <FaPaperclip />
                         </span>
 
-                        {/* Bootstrap Modal */}
-                        <Modal show={showModal} onHide={closeModal}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Attachment Modal</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                {/* Add your modal content here */}
-                                This is the content of the modal.
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={closeModal}>
-                                    Close
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
                     </div>
                     {dataCount}
                 </div>
