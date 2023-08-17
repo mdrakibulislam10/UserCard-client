@@ -14,7 +14,11 @@ const IncompleteData = () => {
 
 
     return (
-        <div>
+        <div className="bg-secondary p-2 rounded">
+            <div className="text-white d-flex justify-content-between">
+                <p>Incomplete</p>
+                <p className="bg-white text-black d-flex align-items-center justify-content-center" style={{ width: "20px", height: "20px" }}>0</p>
+            </div>
             {
                 incompleteData.map(userData =>
                     <UserDataCard
